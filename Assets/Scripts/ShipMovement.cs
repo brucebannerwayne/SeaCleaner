@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//script for moving the ship
 public class ShipMovement : MonoBehaviour
 {
     public float speed;
@@ -16,7 +16,7 @@ public class ShipMovement : MonoBehaviour
             float h = Input.GetAxis("Horizontal");
             Vector3 movement = new Vector3(h, 0, 0);
             GetComponent<Rigidbody2D>().velocity = movement * speed;
-            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5, 5), 3.34f, 0);
+            transform.position = new Vector3(Mathf.Clamp(transform.position.x, -5, 5), 3.34f, 0);//limit the movement range
         }
     }
 }

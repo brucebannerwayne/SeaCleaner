@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-
+//restart the game
 public class Restart : MonoBehaviour
 {
     public void RestartFromBegin()

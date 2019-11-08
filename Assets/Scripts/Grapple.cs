@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Grapple : MonoBehaviour
 {
-    public void SuperGrapple()
+    public void SuperGrapple()//make grapple moves faster when super grapple button is pressed
     {
         GameObject.FindWithTag("Data").SendMessage("Strength");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

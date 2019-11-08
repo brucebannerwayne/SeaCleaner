@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//script used to control the grapple
 public class RotateHook : MonoBehaviour
 {
     public float angle;
@@ -31,13 +31,13 @@ public class RotateHook : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (canLaunch == true)
+        if (canLaunch == true)//rotate the grapple
         {
             transform.position = anchor.position;
             transform.RotateAround(rotatePoint.position, rotatePole, angle * Time.deltaTime);
 
         }
-        if (Input.GetKeyDown(KeyCode.Mouse0) && canLaunch == true)
+        if (Input.GetKeyDown(KeyCode.Mouse0) && canLaunch == true)//Launch the grapple
         {
             canLaunch = false;
           
@@ -49,7 +49,7 @@ public class RotateHook : MonoBehaviour
             GetComponent<Rigidbody2D>().velocity = moveDir * weight;
 
         }
-        if (canLaunch == false && goBack ==true)
+        if (canLaunch == false && goBack ==true)//make the grapple come back
         {
             if (transform.position == anchor.position)
             {
@@ -65,18 +65,18 @@ public class RotateHook : MonoBehaviour
             }
         }
     }
-    public void MoveBack()
+    public void MoveBack()//pause the grapple and allow it to move back
     {
         goBack = true;
         GetComponent<Rigidbody2D>().velocity = Vector2.zero;
        
         
     }
-    public void HoldTight()
+    public void HoldTight()//change the picture of the hook
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = tight;
     }
-    public void GetLoose()
+    public void GetLoose()//change the picture of the hook
     {
         gameObject.GetComponent<SpriteRenderer>().sprite = loose;
     }

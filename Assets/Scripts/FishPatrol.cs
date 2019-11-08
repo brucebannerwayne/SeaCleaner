@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
+//script used to control fish
 public class FishPatrol : MonoBehaviour
 {
     public List<Transform> Path = new List<Transform>();
@@ -22,7 +22,7 @@ public class FishPatrol : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        health = 100;
+        health = 100;//set fish's hp based on its type
         if(fragile == true)
         {
             health = 32;
@@ -39,20 +39,20 @@ public class FishPatrol : MonoBehaviour
     void Update()
     {
         
-        transform.position = Vector3.MoveTowards(transform.position, tr.position, speed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, tr.position, speed * Time.deltaTime);//make the fish patrol
         transform.rotation = Quaternion.Euler(rotDir);
         if (health <= 0)
         {
             SelfDest();
         }
     }
-    public void SelfDest()
+    public void SelfDest()//destroy the fish when it is dead and count the score
     {
         GameObject.FindWithTag("GameManager").SendMessage("AddFishDead");
         gameObject.tag = "Useless";
         Destroy(gameObject);
     }
-    public void GetHurt()
+    public void GetHurt()//notice the player that the fish got hurt
     {
         sign.GetComponent<SpriteRenderer>().sprite = spriteAlarm;
         Invoke("BackToNormal", 2);
@@ -61,7 +61,7 @@ public class FishPatrol : MonoBehaviour
     {
         sign.GetComponent<SpriteRenderer>().sprite = spriteBlank;
     }
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)//hurt the fish when it contacts with trash
     {
         if(collision.tag == "Trash")
         {
@@ -73,7 +73,7 @@ public class FishPatrol : MonoBehaviour
             }
         }
     }
-    public void Stun()
+    public void Stun()//stun the fish
     {
         tempSpeed = speed;
         speed = 0;

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Shock : MonoBehaviour
 {
-    public void ShockWave()
+    public void ShockWave()//make stun ability available when the button is pressed
     {
         GameObject.FindWithTag("Data").SendMessage("StunFish");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

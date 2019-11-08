@@ -40,8 +40,8 @@ public class GameManager : MonoBehaviour
     void Update()
     {
         
-       score = 50 * trashType1 + 150 * trashType2 - 100 * FishDead;
-       if(DataStorage.GetComponent<DataStorage>().stun == true)
+       score = 50 * trashType1 + 150 * trashType2 - 100 * FishDead;//count score
+       if(DataStorage.GetComponent<DataStorage>().stun == true)//Stun fish
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
@@ -52,7 +52,7 @@ public class GameManager : MonoBehaviour
                 DataStorage.GetComponent<DataStorage>().stun = false;
             }
         }
-       if(DataStorage.GetComponent<DataStorage>().vaporize > 0)
+       if(DataStorage.GetComponent<DataStorage>().vaporize > 0)//instant recycle
         {
             if (Input.GetKeyDown(KeyCode.Mouse1))
             {
@@ -74,7 +74,7 @@ public class GameManager : MonoBehaviour
         {
             win = true;
         }
-        if(gameOver == true)
+        if(gameOver == true)//winning determination
         {
             if(win == true)
             {
@@ -90,23 +90,23 @@ public class GameManager : MonoBehaviour
         }
              
     }
-    public void AddTType1()
+    public void AddTType1()//count the number of trash which worth 50 points
     {
         trashType1++;
     }
-    public void AddTType2()
+    public void AddTType2()//count the number of trash which worth 150 points
     {
         trashType2++;
     }
-    public void AddFishDead()
+    public void AddFishDead()//count how many fish is dead
     {
         FishDead++;
     }
-    public void UpdateScore()
+    public void UpdateScore()//update score
     {
         scoreText.text = "Score:" + score;
     }
-    private IEnumerator CountDown()
+    private IEnumerator CountDown()//time count
     {
         while(totalTime >= 0)
         {
@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour
             totalTime--;
         }
     }
-    public void CountFish()
+    public void CountFish()//count the surviving fish
     {
         FishCount.Clear();
         
@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
         }
         
     }
-    public void CountTrash()
+    public void CountTrash()//count how many trashed are left
     {
         TrashCount.Clear();
         foreach(GameObject t in GameObject.FindGameObjectsWithTag("Trash"))

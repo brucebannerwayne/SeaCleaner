@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TrashVaporize : MonoBehaviour
 {
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)//Destroy the trash selected by instant recycle
     {
         if(collision.tag == "Trash")
         {

@@ -5,7 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class Instant : MonoBehaviour
 {
-    public void InstantRecycle()
+    public void InstantRecycle()//make instant recycle available when the button is pressed
     {
         GameObject.FindWithTag("Data").SendMessage("GetVapor");
         int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class RotateLeft : MonoBehaviour
 {
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)//rotate the hook
     {
         if (collision.tag == "Hook")
         {

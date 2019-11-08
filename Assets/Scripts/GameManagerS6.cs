@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
-
+//customized GameManager script for level six
 public class GameManagerS6 : MonoBehaviour
 {
     public int targetScore;
@@ -29,7 +29,7 @@ public class GameManagerS6 : MonoBehaviour
     public Vector2 spawnValues;
     private Vector2 spawnPosition = Vector2.zero;
     private Quaternion spawnRotation;
-    IEnumerator SpawnWaves()
+    IEnumerator SpawnWaves()//allow trash to spawn randomly om the map
     {
         yield return new WaitForSeconds(startWait);
         while (true)

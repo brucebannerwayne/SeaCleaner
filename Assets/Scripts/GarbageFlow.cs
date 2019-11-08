@@ -5,7 +5,7 @@ using UnityEngine;
 public class GarbageFlow : MonoBehaviour
 {
     public Transform tr;
-    public void OnTriggerEnter2D(Collider2D collision)
+    public void OnTriggerEnter2D(Collider2D collision)//make garbage float
     {
         if(collision.tag == "Trash")
         {

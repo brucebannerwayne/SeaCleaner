@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//make the garbage moves with the stream
 public class Stream : MonoBehaviour
 {
     public Vector2 streamForce;
